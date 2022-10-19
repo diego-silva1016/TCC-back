@@ -19,8 +19,24 @@ class ClientRepository {
     return clientData;
   }
 
+  updateClient(client) {
+    const index = this.clientes.findIndex(c => c.id === client.id);
+
+    this.clientes[index] = client;
+
+    return client
+  }
+
   getAllClients() {
     return this.clientes;
+  }
+
+  getClient(id) {
+    return this.clientes.find(c => c.id === id);
+  }
+
+  deleteClient(id) {
+    this.clientes = this.clientes.filter(c => c.id !== id);
   }
 }
 
