@@ -10,9 +10,8 @@ class NoteService {
   }
 
    create(note) {
-    note.codigo = Math.floor(Math.random() * (999999999 - 100000000) + 100000000);
+    note.codigoNota = Math.floor(Math.random() * (999999999 - 100000000) + 100000000);
     note.status = "Emitido";
-    console.log(note)
     const client = this.clientServer.getClient(note.clientId)
 
     note.clientName = client.nome;
