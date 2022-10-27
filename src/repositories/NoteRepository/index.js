@@ -15,11 +15,11 @@ class NoteRepository {
   }
 
   getNote(codigo) {
-    return this.note.find(c => c.codigo === codigo);
+    return this.notes.find(c => c.codigo === codigo);
   }
 
   cancelNote(codigo) {
-    const note = this.note.find(c => c.codigo === codigo);
+    const note = this.notes.find(c => c.codigo === codigo);
 
     note.status = "Cancelado";
 
