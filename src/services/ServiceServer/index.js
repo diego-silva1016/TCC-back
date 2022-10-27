@@ -1,32 +1,28 @@
-const ServiceRepository = require("../../repositories/ServiceRepository");
+const {serviceRepository} = require("../../instancia");
 
 class ServiceServer {
-   constructor(){
-    this.serviceRepository = new ServiceRepository()
-  }
-
    create(service) {
-    const serviceExist = this.serviceRepository.findCodigo(service.codigo);
+    const serviceExist = serviceRepository.findCodigo(service.codigo);
 
     if (serviceExist) throw new Error('Serviço já cadastrado.');
 
-    return this.serviceRepository.create(service);
+    return serviceRepository.create(service);
   }
 
   updateService(service) {
-    return this.serviceRepository.updateService(service)
+    return serviceRepository.updateService(service)
   }
 
   getServices() {
-    return this.serviceRepository.getAllServices()
+    return serviceRepository.getAllServices()
   }
 
   getService(id) {
-    return this.serviceRepository.getService(id)
+    return serviceRepository.getService(id)
   }
 
   deleteService(id) {
-    return this.serviceRepository.deleteService(id)
+    return serviceRepository.deleteService(id)
   }
 }
 

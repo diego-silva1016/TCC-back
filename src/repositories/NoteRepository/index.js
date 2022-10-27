@@ -4,10 +4,7 @@ class NoteRepository {
     this.notes = []
   }
 
-  create(noteData) {
-    noteData.codigo = Math.random() * (999999999 - 100000000) + 100000000;
-    noteData.status = "Emitido";
-
+  create(noteData) {  
     this.notes.push(noteData);
 
     return noteData;

@@ -8,9 +8,9 @@ const noteService = new NoteService()
 noteRouter.post(
   '/',
   (request, response) => {
-    const { note } = request.body;
+    const { invoice } = request.body;
 
-    return response.json(noteService.create(note));
+    return response.json(noteService.create(invoice));
   }
 );
 

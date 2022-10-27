@@ -10,9 +10,12 @@ class NoteService {
   }
 
    create(note) {
-    const noteExist = this.noteRepository.findDocument(note.documento);
+    note.codigo = Math.floor(Math.random() * (999999999 - 100000000) + 100000000);
+    note.status = "Emitido";
+    console.log(note)
+    const client = this.clientServer.getClient(note.clientId)
 
-    if (noteExist) throw new Error('Nota já emitida.');
+    note.clientName = client.nome;
 
     return this.noteRepository.create(note);
   }
