@@ -13,6 +13,10 @@ class NoteRepository {
     return noteData;
   }
 
+  getNotes() {
+    return this.notes;
+  }
+
   getNote(codigo) {
     return this.note.find(c => c.codigo === codigo);
   }

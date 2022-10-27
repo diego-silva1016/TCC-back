@@ -18,7 +18,7 @@ class NoteService {
   }
 
   getNotes() {
-    return this.noteRepository.getAllNotes();
+    return this.noteRepository.getNotes();
   }
 
   getNote(codigo) {
