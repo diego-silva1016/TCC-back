@@ -18,14 +18,14 @@ noteRouter.get('/', (request, response) => {
   return response.json(noteService.getNotes());
 });
 
-noteRouter.get('/:codigo', (request, response) => {
-  const { codigo } = request.params;
-  return response.json(noteService.getNote(codigo));
+noteRouter.get('/:id', (request, response) => {
+  const { id } = request.params;
+  return response.json(noteService.getNote(id));
 });
 
-noteRouter.put('/', (request, response) => {
-  const { codigo } = request.body;
-  return response.json(noteService.cancelNote(codigo));
+noteRouter.put('/:id', (request, response) => {
+  const { id } = request.params;
+  return response.json(noteService.cancelNote(id));
 });
 
 module.exports = noteRouter;

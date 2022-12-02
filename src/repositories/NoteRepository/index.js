@@ -14,15 +14,16 @@ class NoteRepository {
     return this.notes;
   }
 
-  getNote(codigo) {
-    return this.notes.find(c => c.codigoNota === Number(codigo));
+  getNote(id) {
+    return this.notes.find(c => c.nfeId === id);
   }
 
-  cancelNote(codigo) {
-    const note = this.notes.find(c => c.codigoNota === Number(codigo));
+  cancelNote(id) {
+    const note = this.notes.find(c => c.nfeId === id);
 
-    note.status = "Cancelado";
+    note.status = "Cancelada";
 
+    return note
   }
 
 }

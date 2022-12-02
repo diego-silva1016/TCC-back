@@ -1,3 +1,4 @@
+const { uuid } = require("uuidv4");
 const NoteRepository = require("../../repositories/NoteRepository");
 const ClientServer = require("../ClientServer")
 const ServiceServer = require("../ServiceServer")
@@ -10,7 +11,8 @@ class NoteService {
   }
 
    create(note) {
-    note.codigoNota = Math.floor(Math.random() * (999999999 - 100000000) + 100000000);
+    note.nfeId = uuid()
+    note.codigoNota = '15789456324785021478965238965478965423014587';
     note.status = "Emitido";
     const client = this.clientServer.getClient(note.clientId)
 
@@ -23,8 +25,8 @@ class NoteService {
     return this.noteRepository.getNotes();
   }
 
-  getNote(codigo) {
-    const findedNote = this.noteRepository.getNote(codigo)
+  getNote(id) {
+    const findedNote = this.noteRepository.getNote(id)
     const nota = {
       ...findedNote,
       ...this.clientServer.getClient(findedNote.clientId),
@@ -35,8 +37,8 @@ class NoteService {
     
   }
 
-  cancelNote(codigo) {
-    return this.noteRepository.cancelNote(codigo);
+  cancelNote(id) {
+    return this.noteRepository.cancelNote(id);
   }
 }
 
