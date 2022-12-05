@@ -14,6 +14,15 @@ companyRouter.post(
   }
 );
 
+companyRouter.post(
+  '/certificate',
+  (request, response) => {
+    const { id } = request.body;
+
+    return response.json(companyService.setCertificateCompany(id));
+  }
+);
+
 companyRouter.get('/', (request, response) => {
     return response.json(companyService.getCompany());
   });

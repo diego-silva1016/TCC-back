@@ -13,6 +13,12 @@ class CompanyService {
     return companyRepository.updateCompany(company)
   }
 
+  setCertificateCompany(id) {
+    const company = companyRepository.updateCompanyCertificate(id)
+
+    return {...company, password: ''}
+  }
+
   getCompany() {
     return companyRepository.getAllCompanys()
   }
