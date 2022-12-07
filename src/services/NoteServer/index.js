@@ -14,6 +14,7 @@ class NoteService {
     note.nfeId = uuid()
     note.codigoNota = '15789456324785021478965238965478965423014587';
     note.status = "Emitida";
+    note.dataEmissao = new Date();
     const client = this.clientServer.getClient(note.clientId)
     const service = this.serviceServer.getService(note.serviceId)
 
