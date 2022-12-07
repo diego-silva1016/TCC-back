@@ -22,8 +22,6 @@ class NoteRepository {
     const note = this.notes.find(c => c.nfeId === id);
 
     note.status = "Cancelada";
-
-    return note
   }
 
 }

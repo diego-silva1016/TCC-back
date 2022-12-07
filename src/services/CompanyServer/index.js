@@ -1,3 +1,4 @@
+const { uuid } = require("uuidv4");
 const {companyRepository} = require("../../instancia");
 
 class CompanyService {
@@ -6,6 +7,7 @@ class CompanyService {
 
     if (companyExist) throw new Error('Empresa já cadastrada.');
 
+    company.id = uuid()
     return companyRepository.create(company);
   }
 
